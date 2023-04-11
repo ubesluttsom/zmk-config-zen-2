@@ -6,8 +6,6 @@
 
 compatible = "zmk,combos";
 
-#define BASE QWR CLM
-
 #define COMBO(NAME, BINDINGS, KEYPOS, LAYERS, TERM) \
     combo_##NAME { \
         timeout-ms = <TERM>; \
@@ -17,17 +15,17 @@ compatible = "zmk,combos";
     };
 
 // Symbols
-COMBO(lpar,            &kp LPAR,             16 17,    QWERTY, 50)
-COMBO(rpar,            &kp RPAR,             18 19,    QWERTY, 50)
-COMBO(lbkt,            &kp LBKT,             15 16,    QWERTY, 50)
-COMBO(rbkt,            &kp RBKT,             19 20,    QWERTY, 50)
-COMBO(lbrc,            &kp LBRC,             14 15,    QWERTY, 50)
-COMBO(rbrc,            &kp RBRC,             20 21,    QWERTY, 50)
-COMBO(lt,              &kp LT,               13 14,    QWERTY, 50)
-COMBO(gt,              &kp GT,               21 22,    QWERTY, 50)
-COMBO(colon,           &kp COLON,             7  8,    QWERTY, 50)
-COMBO(semi,            &kp SEMI,             31 32,    QWERTY, 50)
+COMBO(lpar,    &kp LPAR,     16 17,    QWERTY, 50)
+COMBO(rpar,    &kp RPAR,     18 19,    QWERTY, 50)
+COMBO(lbkt,    &kp LBKT,     15 16,    QWERTY, 50)
+COMBO(rbkt,    &kp RBKT,     19 20,    QWERTY, 50)
+COMBO(lbrc,    &kp LBRC,     14 15,    QWERTY, 50)
+COMBO(rbrc,    &kp RBRC,     20 21,    QWERTY, 50)
+COMBO(lt,      &kp LT,       13 14,    QWERTY, 50)
+COMBO(gt,      &kp GT,       21 22,    QWERTY, 50)
+COMBO(colon,   &kp COLON,     7  8,    QWERTY, 50)
+COMBO(semi,    &kp SEMI,     31 32,    QWERTY, 50)
 
 // Big keys
-COMBO(bspc_l,          &kp BSPC,              0  1,    QWERTY, 50)
-COMBO(bspc_r,          &kp BSPC,             10 11,    QWERTY, 50)
+COMBO(bspc_l,  &kp BSPC,      0  1,    QWERTY, 50)
+COMBO(bspc_r,  &kp BSPC,     10 11,    QWERTY, 50)
