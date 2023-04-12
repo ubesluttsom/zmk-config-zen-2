@@ -5,6 +5,7 @@
 #define QWERTY 0
 #define NUMBER 1
 #define SYMBOL 2
+#define ARROWS 3
 
 / {
   chosen {
@@ -76,6 +77,25 @@
    &trans  &trans   &trans &trans   &trans   &trans    &kp LEFT  &kp DOWN  &kp UP          &kp RIGHT &kp EQUAL &kp BSLH
    &trans  &trans   &trans &trans   &trans   &trans    &kp HOME  &kp PG_DN &kp PG_UP       &kp END   &kp PIPE  &trans
                            &trans   &trans   &trans    &trans    &trans    &trans
+                        >;
+                };
+
+                arrow_layer {
+                        label = "ARROWS";
+// +-----+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+-----+
+// |     |     |     |     |     |     |   |     |     |     |     |     |     |
+// +-----+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+-----+
+// |     |     |     |     |     |     |   |  ←  |  ↓  |  ↑  |  →  |     |     |
+// +-----+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+-----+
+// |     |     |     |     |     |     |   |  ↖  |  ⇟  |  ⇞  |  ↘  |     |     |
+// +-----+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+-----+
+//                   |     |     |     |   |     |     |     |
+//                   +-----+-----+-----+   +-----+-----+-----+
+                        bindings = <
+   &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans     &trans     &trans     &trans  &trans   
+   &trans  &trans  &trans  &trans  &trans  &trans    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans  &trans
+   &trans  &trans  &trans  &trans  &trans  &trans    &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans  &trans
+                           &trans  &trans  &trans    &trans    &trans     &trans
                         >;
                 };
         };

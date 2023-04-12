@@ -6,6 +6,8 @@
 
 compatible = "zmk,combos";
 
+#define ALL QWERTY NUMBER SYMBOL ARROWS
+
 #define COMBO(NAME, BINDINGS, KEYPOS, LAYERS, TERM) \
     combo_##NAME { \
         timeout-ms = <TERM>; \
@@ -27,5 +29,24 @@ COMBO(colon,   &kp COLON,     7  8,    QWERTY, 50)
 COMBO(semi,    &kp SEMI,     31 32,    QWERTY, 50)
 
 // Big keys
-COMBO(bspc_l,  &kp BSPC,      0  1,    QWERTY, 50)
-COMBO(bspc_r,  &kp BSPC,     10 11,    QWERTY, 50)
+COMBO(bspc_l,  &kp BSPC,      0  1,    ALL, 50)
+COMBO(bspc_r,  &kp BSPC,     10 11,    ALL, 50)
+
+// System
+COMBO(copy_mac,        &kp LG(C),            26 27, ALL, 50)
+COMBO(paste_mac,       &kp LG(V),         26 27 28, ALL, 50)
+COMBO(undo_mac,        &kp LG(Z),            25 26, ALL, 50)
+COMBO(redo_mac,        &kp LG(LS(Z)),        28 29, ALL, 50)
+COMBO(cut_mac,         &kp LG(X),            27 29, ALL, 50)
+COMBO(capswd,          &caps_word,           16 19, ALL, 50)
+COMBO(launch_mac,      &kp LG(SPACE),     14 15 16, ALL, 50)
+COMBO(tab_lt,          &kp LC(TAB),            1 2, ALL, 50)
+COMBO(tab_rt,          &kp LC(LS(TAB)),        2 3, ALL, 50)
+COMBO(back_mac,        &kp LG(LBKT),           3 4, ALL, 50)
+COMBO(fwd_mac,         &kp LG(RBKT),           4 5, ALL, 50)
+COMBO(menu_search,     &kp LG(LS(SLASH)),    28 29, ALL, 50)
+COMBO(line_start,      &kp LG(LEFT),         18 19, ALL, 50)
+COMBO(line_end,        &kp LG(RIGHT),        20 21, ALL, 50)
+
+// Layer toggle
+COMBO(symbol_lock,     &tog ARROWS, 19 20,    SYMBOL, 50)
