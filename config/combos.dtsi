@@ -6,7 +6,8 @@
 
 compatible = "zmk,combos";
 
-#define ALL QWERTY NUMBER SYMBOL ARROWS
+#define TYPE QWERTY NUMBER SYMBOL
+#define ALL  QWERTY NUMBER SYMBOL ARROWS
 
 #define COMBO(NAME, BINDINGS, KEYPOS, LAYERS, TERM) \
     combo_##NAME { \
@@ -16,17 +17,29 @@ compatible = "zmk,combos";
         layers = <LAYERS>; \
     };
 
-// Symbols
-COMBO(lpar,    &kp LPAR,     16 17,    QWERTY, 50)
-COMBO(rpar,    &kp RPAR,     18 19,    QWERTY, 50)
-COMBO(lbkt,    &kp LBKT,     15 16,    QWERTY, 50)
-COMBO(rbkt,    &kp RBKT,     19 20,    QWERTY, 50)
-COMBO(lbrc,    &kp LBRC,     14 15,    QWERTY, 50)
-COMBO(rbrc,    &kp RBRC,     20 21,    QWERTY, 50)
-COMBO(lt,      &kp LT,       13 14,    QWERTY, 50)
-COMBO(gt,      &kp GT,       21 22,    QWERTY, 50)
-COMBO(colon,   &kp COLON,     7  8,    QWERTY, 50)
-COMBO(semi,    &kp SEMI,     31 32,    QWERTY, 50)
+/* Symbols
+   ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
+   │   BSPC    │     │     │     │     │   │     $     :     0     =    BSPC   │
+   ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+   │     │     <     {     [     (     │   │     )     ]     }     >     │     │
+   ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+   │     │  `  │     │     │     │     │   │     │     ;     │     │     │     │
+   ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
+                     │     │     │     │   │     │     │     │
+                     ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
+COMBO(lpar,    &kp LPAR,     16 17, TYPE, 50)
+COMBO(rpar,    &kp RPAR,     18 19, TYPE, 50)
+COMBO(lbkt,    &kp LBKT,     15 16, TYPE, 50)
+COMBO(rbkt,    &kp RBKT,     19 20, TYPE, 50)
+COMBO(lbrc,    &kp LBRC,     14 15, TYPE, 50)
+COMBO(rbrc,    &kp RBRC,     20 21, TYPE, 50)
+COMBO(lt,      &kp LT,       13 14, TYPE, 50)
+COMBO(gt,      &kp GT,       21 22, TYPE, 50)
+COMBO(dollar,  &kp DLLR,      6  7, TYPE, 50)
+COMBO(colon,   &kp COLON,     7  8, TYPE, 50)
+COMBO(zero,    &kp N0,        8  9, TYPE, 50)
+COMBO(equal,   &kp EQUAL,     9 10, TYPE, 50)
+COMBO(semi,    &kp SEMI,     31 32, TYPE, 50)
 
 // Big keys
 COMBO(bspc_l,  &kp BSPC,      0  1,    ALL, 50)
@@ -40,13 +53,14 @@ COMBO(redo_mac,        &kp LG(LS(Z)),        28 29, ALL, 50)
 COMBO(cut_mac,         &kp LG(X),            27 29, ALL, 50)
 COMBO(capswd,          &caps_word,           16 19, ALL, 50)
 COMBO(launch_mac,      &kp LG(SPACE),     14 15 16, ALL, 50)
-COMBO(tab_lt,          &kp LC(TAB),            1 2, ALL, 50)
-COMBO(tab_rt,          &kp LC(LS(TAB)),        2 3, ALL, 50)
+COMBO(tab_rt,          &kp LC(LS(TAB)),        1 2, ALL, 50)
+COMBO(tab_lt,          &kp LC(TAB),            2 3, ALL, 50)
 COMBO(back_mac,        &kp LG(LBKT),           3 4, ALL, 50)
 COMBO(fwd_mac,         &kp LG(RBKT),           4 5, ALL, 50)
 COMBO(menu_search,     &kp LG(LS(SLASH)),    28 29, ALL, 50)
-COMBO(line_start,      &kp LG(LEFT),         18 19, ALL, 50)
-COMBO(line_end,        &kp LG(RIGHT),        20 21, ALL, 50)
+COMBO(line_start,      &kp LG(LEFT),         18 19, ARROWS, 50)
+COMBO(line_end,        &kp LG(RIGHT),        20 21, ARROWS, 50)
 
 // Layer toggle
-COMBO(symbol_lock,     &tog ARROWS, 19 20,    SYMBOL, 50)
+COMBO(layer_reset,     &to QWERTY,    37 40,           ALL, 50)
+COMBO(bt_toggle,       &to BLUETH, 36 37 38,           ALL, 50)

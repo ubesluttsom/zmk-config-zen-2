@@ -6,6 +6,7 @@
 #define NUMBER 1
 #define SYMBOL 2
 #define ARROWS 3
+#define BLUETH 4
 
 / {
   chosen {
@@ -26,76 +27,96 @@
 
                 default_layer {
                         label = "QWERTY";
-// +-------------+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+------+
-// | ESC         |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | BKSP |
-// +-------------+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+------+
-// | LCTRL / TAB |  A  |  S  |  D  |  F  |  G  |   |  H  |  J  |  K  |  L  |  ;  |  '   |
-// +-------------+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+------+
-// | SHIFT / `   |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  /  | SHFT |
-// +-------------+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+------+
-//                           | GUI | LWR | SPC |   | ENT | RSE | ALT |
-//                           +-----+-----+-----+   +-----+-----+-----+
+/* ╭──────────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
+   │ ESC      │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │  ⌫  │
+   ├──────────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+   │ CTRL / ↹ │  A  │  S  │  D  │  F  │  G  │   │  H  │  J  │  K  │  L  │  ;  │  '  │
+   ├──────────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+   │  ⇧       │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  /  │  ⇧  │
+   ╰──────────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
+                          │  ⌘  │ SYM │  ␣  │   │  ⏎  │ NUM │  ⌥  │
+                          ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                    */
                         bindings = <
-   &kp ESC          &kp Q    &kp W      &kp E     &kp R   &kp T      &kp Y    &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &mt LCTRL TAB    &kp A    &kp S      &kp D     &kp F   &kp G      &kp H    &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &mt LSHIFT GRAVE &kp Z    &kp X      &kp C     &kp V   &kp B      &kp N    &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                    &sk LGUI &sl NUMBER &kp SPACE &kp RET &sl SYMBOL &sk RALT
+   &kp ESC        &kp Q    &kp W      &kp E        &kp R   &kp T      &kp Y    &kp U  &kp I     &kp O   &kp P    &kp BSPC
+   &mt LCTRL TAB  &kp A    &kp S      &kp D        &kp F   &kp G      &kp H    &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+   &kp LSHIFT     &kp Z    &kp X      &kp C        &kp V   &kp B      &kp N    &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+                  &sk LGUI &to SYMBOL &kp SPACE    &kp RET &to NUMBER &sk RALT
                         >;
                 };
+
                 lower_layer {
                         label = "NUMBER";
-// +-------+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+-----+
-// |       |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |  \  |
-// +-------+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+-----+
-// | BTCLR | BT1 | BT2 | BT3 | BT4 | BT5 |   |     |  4  |  5  |  6  |  -  |  *  |
-// +-------+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+-----+
-// |       |     |     |     |     |     |   |  0  |  1  |  2  |  3  |  +  |  =  |
-// +-------+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+-----+
-//                     |     |     |     |   |     |     |     |
-//                     +-----+-----+-----+   +-----+-----+-----+
+/* ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
+   │     │     │     │     │     │     │   │  +  │  7  │  8  │  9  │  *  │     │
+   ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+   │     │     │     │     │     │     │   │  -  │  4  │  5  │  6  │  /  │     │
+   ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+   │     │     │     │     │     │     │   │  0  │  1  │  2  │  3  │  =  │     │
+   ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
+                     │     │ QWR │     │   │     │     │     │
+                     ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
                         bindings = <
-   &trans     &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7 &kp N8 &kp N9 &kp N0    &kp BSLH
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans   &kp N4 &kp N5 &kp N6 &kp MINUS &kp KP_MULTIPLY
-   &trans     &trans       &trans       &trans       &trans       &trans         &kp N0   &kp N1 &kp N2 &kp N3 &kp PLUS  &kp EQUAL
-                           &trans       &trans       &trans       &trans         &trans   &trans
+   &trans  &trans  &trans  &trans  &trans      &trans    &kp PLUS   &kp N7      &kp N8  &kp N9  &kp KP_MULTIPLY  &trans
+   &trans  &trans  &trans  &trans  &trans      &trans    &kp MINUS  &kp N4      &kp N5  &kp N6  &kp FSLH         &trans
+   &trans  &trans  &trans  &trans  &trans      &trans    &kp N0     &kp N1      &kp N2  &kp N3  &kp EQUAL        &trans
+                           &trans  &to QWERTY  &trans    &trans     &to ARROWS  &trans
                         >;
                 };
 
                 raise_layer {
                         label = "SYMBOL";
-// +-----+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+-----+
-// |     |  !  |  @  | '#' |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |  -  |
-// +-----+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+-----+
-// |     |     |     |     |     |     |   |  ←  |  ↓  |  ↑  |  →  |  =  |  \  |
-// +-----+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+-----+
-// |     |     |     |     |     |     |   |  ↖  |  ⇟  |  ⇞  |  ↘  | '|' |     |
-// +-----+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+-----+
-//                   |     |     |     |   |     |     |     |
-//                   +-----+-----+-----+   +-----+-----+-----+
+/* ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
+   │     │     │     │     │     │     │   │     │     │     │     │     │     │
+   ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+   │     │  !  │  @  │ '#' │  $  │  %  │   │  ^  │  &  │  *  │  -  │  =  │  \  │
+   ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+   │     │  `  │     │     │     │     │   │     │     │     │     │     │     │
+   ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
+                     │     │ QWR │     │   │     │     │     │
+                     ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
                         bindings = <
-   &trans  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR  &kp RPAR  &kp MINUS
-   &trans  &trans   &trans &trans   &trans   &trans    &kp LEFT  &kp DOWN  &kp UP          &kp RIGHT &kp EQUAL &kp BSLH
-   &trans  &trans   &trans &trans   &trans   &trans    &kp HOME  &kp PG_DN &kp PG_UP       &kp END   &kp PIPE  &trans
-                           &trans   &trans   &trans    &trans    &trans    &trans
+   &trans  &trans    &trans &trans   &trans      &trans       &trans    &trans      &trans          &trans     &trans     &trans
+   &trans  &kp EXCL  &kp AT &kp HASH &kp DLLR    &kp PRCNT    &kp CARET &kp AMPS    &kp KP_MULTIPLY &kp MINUS  &kp EQUAL  &kp BSLH
+   &trans  &kp GRAVE &trans &trans   &trans      &trans       &trans    &trans      &trans          &trans     &trans     &trans
+                            &trans   &to QWERTY  &trans       &trans    &to NUMBER  &trans
                         >;
                 };
 
                 arrow_layer {
                         label = "ARROWS";
-// +-----+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+-----+
-// |     |     |     |     |     |     |   |     |     |     |     |     |     |
-// +-----+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+-----+
-// |     |     |     |     |     |     |   |  ←  |  ↓  |  ↑  |  →  |     |     |
-// +-----+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+-----+
-// |     |     |     |     |     |     |   |  ↖  |  ⇟  |  ⇞  |  ↘  |     |     |
-// +-----+-----+-----+-----+-----+-----+   +-----+-----+-----+-----+-----+-----+
-//                   |     |     |     |   |     |     |     |
-//                   +-----+-----+-----+   +-----+-----+-----+
+/* ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
+   │     │     │     │     │     │     │   │ <LN │  ¶> │ <¶  │ LN> │     │     │
+   ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+   │     │     │     │     │     │     │   │  ←  │  ↓  │  ↑  │  →  │     │     │
+   ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+   │     │     │     │     │     │     │   │  ↖  │ PGD │ PGU │  ↘  │     │     │
+   ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
+                     │     │ QWR │     │   │     │     │     │
+                     ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
                         bindings = <
-   &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans     &trans     &trans     &trans  &trans   
-   &trans  &trans  &trans  &trans  &trans  &trans    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans  &trans
-   &trans  &trans  &trans  &trans  &trans  &trans    &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans  &trans
-                           &trans  &trans  &trans    &trans    &trans     &trans
+   &trans  &trans  &trans  &trans  &trans      &trans    &kp LG(LEFT)  &kp LC(A)  &kp LC(E)  &kp LG(RIGHT) &trans  &trans   
+   &trans  &trans  &trans  &trans  &trans      &trans    &kp LEFT      &kp DOWN   &kp UP     &kp RIGHT     &trans  &trans
+   &trans  &trans  &trans  &trans  &trans      &trans    &kp HOME      &kp PG_DN  &kp PG_UP  &kp END       &trans  &trans
+                           &trans  &to QWERTY  &trans    &trans        &trans     &trans
+                        >;
+                };
+
+                bt_layer {
+                        label = "BLUETH";
+/* ╭───────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
+   │       │     │     │     │     │     │   │     │     │     │     │     │     │
+   ├───────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+   │ BTCLR │ BT1 │ BT2 │ BT3 │ BT4 │ BT5 │   │     │     │     │     │     │     │
+   ├───────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+   │       │     │     │     │     │     │   │     │     │     │     │     │     │
+   ╰───────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
+                       │     │ QWR │     │   │     │     │     │
+                       ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
+                        bindings = <
+   &trans     &trans       &trans       &trans       &trans       &trans          &trans  &trans  &trans  &trans  &trans  &trans   
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &trans  &trans  &trans  &trans  &trans  &trans
+   &trans     &trans       &trans       &trans       &trans       &trans          &trans  &trans  &trans  &trans  &trans  &trans
+                                        &trans       &to QWERTY   &trans          &trans  &trans  &trans
                         >;
                 };
         };
