@@ -78,7 +78,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "VIM_NEXT";
             #binding-cells = <0>;
-            bindings = <&kp LG(G)>, <&LG(LS(G))>;
+            bindings = <&kp LG(G)>, <&kp LG(LS(G))>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
@@ -141,7 +141,7 @@
    &trans  &trans    &trans &trans   &trans      &trans       &trans    &trans      &trans          &trans     &trans     &trans
    &trans  &kp EXCL  &kp AT &kp HASH &kp DLLR    &kp PRCNT    &kp CARET &kp AMPS    &kp KP_MULTIPLY &kp MINUS  &kp EQUAL  &kp BSLH
    &trans  &kp GRAVE &trans &trans   &trans      &trans       &trans    &trans      &trans          &trans     &trans     &trans
-                            &trans   &to QWERTY  &trans       &trans    &to ARR  &trans
+                            &trans   &to QWERTY  &trans       &trans    &to ARROWS  &trans
                         >;
                 };
 
