@@ -22,6 +22,69 @@
 };
 
 / {
+    macros {
+        vim_w: vim_word {
+            label = "vim_word";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LA(RIGHT)>
+                , <&macro_tap &kp LA(RIGHT)>
+                , <&macro_tap &kp LA(LEFT)>
+                ;
+        };
+
+        end_append: end_append {
+            label = "end_append";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &to QWERTY>
+                , <&macro_tap &kp LG(RIGHT)>
+                ;
+        };
+
+        home_insert: home_insert {
+            label = "home_insert";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &to QWERTY>
+                , <&macro_tap &kp LG(LEFT)>
+                ;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        vim_i: vim_insert {
+            compatible = "zmk,behavior-mod-morph";
+            label = "VIM_INSERT";
+            #binding-cells = <0>;
+            bindings = <&to QWERTY>, <&home_insert>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        vim_a: vim_append {
+            compatible = "zmk,behavior-mod-morph";
+            label = "VIM_APPEND";
+            #binding-cells = <0>;
+            bindings = <&to QWERTY>, <&end_append>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        vim_n: vim_next {
+            compatible = "zmk,behavior-mod-morph";
+            label = "VIM_NEXT";
+            #binding-cells = <0>;
+            bindings = <&kp LG(G)>, <&LG(LS(G))>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+};
+
+/ {
         keymap {
                 compatible = "zmk,keymap";
 
@@ -34,13 +97,13 @@
    ├──────────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
    │  ⇧       │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  /  │  ⇧  │
    ╰──────────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
-                          │  ⌘  │ SYM │  ␣  │   │  ⏎  │ NUM │  ⌥  │
+                          │  ⌘  │ SYM │  ␣  │   │  ⏎  │ ARR │  ⌥  │
                           ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                    */
                         bindings = <
    &kp ESC        &kp Q    &kp W      &kp E        &kp R   &kp T      &kp Y    &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &mt LCTRL TAB  &kp A    &kp S      &kp D        &kp F   &kp G      &kp H    &kp J  &kp K     &kp L   &kp SEMI &kp SQT
    &kp LSHIFT     &kp Z    &kp X      &kp C        &kp V   &kp B      &kp N    &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                  &sk LGUI &to SYMBOL &kp SPACE    &kp RET &to NUMBER &sk RALT
+                  &sk LGUI &to SYMBOL &kp SPACE    &kp RET &to ARROWS &sk RALT
                         >;
                 };
 
@@ -53,7 +116,7 @@
    ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
    │     │     │     │     │     │     │   │  0  │  1  │  2  │  3  │  =  │     │
    ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
-                     │     │ QWR │     │   │     │     │     │
+                     │     │ QWR │     │   │     │ ARR │     │
                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
                         bindings = <
    &trans  &trans  &trans  &trans  &trans      &trans    &kp PLUS   &kp N7      &kp N8  &kp N9  &kp KP_MULTIPLY  &trans
@@ -72,32 +135,32 @@
    ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
    │     │  `  │     │     │     │     │   │     │     │     │     │     │     │
    ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
-                     │     │ QWR │     │   │     │     │     │
+                     │     │ QWR │     │   │     │ ARR │     │
                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
                         bindings = <
    &trans  &trans    &trans &trans   &trans      &trans       &trans    &trans      &trans          &trans     &trans     &trans
    &trans  &kp EXCL  &kp AT &kp HASH &kp DLLR    &kp PRCNT    &kp CARET &kp AMPS    &kp KP_MULTIPLY &kp MINUS  &kp EQUAL  &kp BSLH
    &trans  &kp GRAVE &trans &trans   &trans      &trans       &trans    &trans      &trans          &trans     &trans     &trans
-                            &trans   &to QWERTY  &trans       &trans    &to NUMBER  &trans
+                            &trans   &to QWERTY  &trans       &trans    &to ARR  &trans
                         >;
                 };
 
                 arrow_layer {
                         label = "ARROWS";
 /* ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
-   │     │     │     │     │     │     │   │ <LN │  ¶> │ <¶  │ LN> │     │     │
+   │     │     │ [w] │ [e] │     │     │   │ <LN │ [u] │ [i] │ LN> │     │     │
    ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-   │     │     │     │     │     │     │   │  ←  │  ↓  │  ↑  │  →  │     │     │
+   │     │ [a] │     │     │     │     │   │  ←  │  ↓  │  ↑  │  →  │     │     │
    ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-   │     │     │     │     │     │     │   │  ↖  │ PGD │ PGU │  ↘  │     │     │
+   │     │     │ [x] │     │ [v] │ [b] │   │ [n] │ PGD │ PGU │  ↘  │ [/] │     │
    ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
-                     │     │ QWR │     │   │     │     │     │
+                     │     │ QWR │     │   │     │ NUM │     │
                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
                         bindings = <
-   &trans  &trans  &trans  &trans  &trans      &trans    &kp LG(LEFT)  &kp LC(A)  &kp LC(E)  &kp LG(RIGHT) &trans  &trans   
-   &trans  &trans  &trans  &trans  &trans      &trans    &kp LEFT      &kp DOWN   &kp UP     &kp RIGHT     &trans  &trans
-   &trans  &trans  &trans  &trans  &trans      &trans    &kp HOME      &kp PG_DN  &kp PG_UP  &kp END       &trans  &trans
-                           &trans  &to QWERTY  &trans    &trans        &trans     &trans
+   &trans  &none    &vim_w         &kp LA(RIGHT) &none       &none        &kp LG(LEFT)  &kp LC(A)  &vim_i     &kp LG(RIGHT) &none     &trans    
+   &trans  &vim_a   &none          &none         &none       &none        &kp LEFT      &kp DOWN   &kp UP     &kp RIGHT     &none     &none 
+   &trans  &none    &kp DEL        &none         &kt LSHIFT  &kp LA(LEFT) &kp LG(G)     &kp PG_DN  &kp PG_UP  &kp END       &kp LG(F) &trans
+                                   &trans        &to QWERTY  &trans       &trans        &to NUMBER &trans 
                         >;
                 };
 
