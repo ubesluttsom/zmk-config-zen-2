@@ -51,7 +51,7 @@ COMBO(dollar,  &kp DLLR,      6  7, TYPE, 50)
 COMBO(colon,   &kp COLON,     7  8, TYPE, 50)
 COMBO(zero,    &kp N0,        8  9, TYPE, 50)
 COMBO(equal,   &kp EQUAL,     9 10, TYPE, 50)
-COMBO(grave,   &kp GRAVE     30 31, TYPE, 50)
+COMBO(grave,   &kp GRAVE,    30 31, TYPE, 50)
 COMBO(semi,    &kp SEMI,     31 32, TYPE, 50)
 
 // Big keys
