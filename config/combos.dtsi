@@ -30,11 +30,11 @@ compatible = "zmk,combos";
 
 /* Symbols
    ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
-   │    DEL    │     │    bck   fwd    │   │     $     :     0     =    BSPC   │
+   │    DEL    │     │     │     │     │   │     $     :     0     =    BSPC   │
    ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
    │    ⌃⇥     <     {     [     (     │   │     )     ]     }     >    ENTER  │
    ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-   │   GLOBE   │     │     │     │     │   │     │     ;     │     │     │     │
+   │   GLOBE   │     │    bck   fwd    │   │     │     ;     │     │     │     │
    ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
                      │     │     │     │   │     │     │     │
                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
@@ -69,8 +69,8 @@ COMBO(launch_mac,      &kp LG(SPACE),     14 15 16, ALL, 50)
 COMBO(menu_search,     &kp LG(LS(SLASH)), 15 16 17, ALL, 50)
 COMBO(tab_lt,          &kp LC(TAB),          12 13, ALL, 50)
 COMBO(tab_rt,          &kp LC(LS(TAB)),   12 13 14, ALL, 50)
-COMBO(back_mac,        &kp LG(LBKT),           3 4, ALL, 50)
-COMBO(fwd_mac,         &kp LG(RBKT),           4 5, ALL, 50)
+COMBO(back_mac,        &kp LG(LBKT),         27 28, ALL, 50)
+COMBO(fwd_mac,         &kp LG(RBKT),         28 29, ALL, 50)
 COMBO(line_start,      &kp LG(LEFT),         18 19, ARROWS, 50)
 COMBO(line_end,        &kp LG(RIGHT),        20 21, ARROWS, 50)
 
