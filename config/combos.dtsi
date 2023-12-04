@@ -34,7 +34,7 @@ compatible = "zmk,combos";
    ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
    │    ⌃⇥     <     {     [     (     │   │     )     ]     }     >    ENTER  │
    ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-   │   GLOBE  undo   │    bck   fwd    │   │     │     ;     │     │     │     │
+   │   GLOBE  undo  cut   bck   fwd    │   │     │     ;     │     │     │     │
    ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
                      │     │     │     │   │     │     │     │
                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
@@ -59,11 +59,11 @@ COMBO(bspc_r,  &kp BSPC,     10 11,    ALL, 50)
 
 // System
 COMBO(globe,           &kp GLOBE,            24 25, ALL, 50)
-COMBO(copy_mac,        &kp LG(C),            26 27, ALL, 50)
-COMBO(paste_mac,       &kp LG(V),         26 27 28, ALL, 50)
 COMBO(undo_mac,        &kp LG(Z),            25 26, ALL, 50)
 COMBO(redo_mac,        &kp LG(LS(Z)),     25 26 27, ALL, 50)
-COMBO(cut_mac,         &kp LG(X),            27 29, ALL, 50)
+COMBO(cut_mac,         &kp LG(X),            26 27, ALL, 50)
+COMBO(copy_mac,        &kp LG(C),         26 27 28, ALL, 50)
+COMBO(paste_mac,       &kp LG(V),         27 28 29, ALL, 50)
 COMBO(capswd,          &caps_word,           16 19, ALL, 50)
 COMBO(launch_mac,      &kp LG(SPACE),     14 15 16, ALL, 50)
 COMBO(menu_search,     &kp LG(LS(SLASH)), 15 16 17, ALL, 50)
