@@ -77,5 +77,5 @@ COMBO(line_end,        &kp LG(RIGHT),        20 21, ARROWS, 50)
 
 // Layer toggle
 COMBO(layer_reset,     &to QWERTY,    37 40,           ALL, 50)
-COMBO(bt_toggle,       &to BLUETH, 36 37 38,           ALL, 50)
-COMBO(bt_toggle,       &to QWERTY, 36 37 38,        BLUETH, 50)
+COMBO(bt_layer,       &to BLUETH, 36 37 38,           ALL, 50)
+COMBO(bt_escape,       &to QWERTY, 36 37 38,        BLUETH, 50)
