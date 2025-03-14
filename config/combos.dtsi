@@ -30,11 +30,11 @@ compatible = "zmk,combos";
 
 /* Symbols
    ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
-   │    DEL    │     │     │     │     │   │     $     :     0     =    BSPC   │
+   │    DEL    │     │     │     │     │   │     "     :     -     =    BSPC   │
    ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
    │    ⌃⇥     <     {     [     (     │   │     )     ]     }     >    ENTER  │
    ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-   │   GLOBE  undo  cut  ~bck~~~fwd~   │   │     `     ;     │     │     │     │
+   │   GLOBE  undo  cut  ~bck~~~fwd~   │   │     0     _     $     │     │     │
    ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
                      │     │     │     │   │     │     │     │
                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
@@ -47,12 +47,13 @@ COMBO(rbrc,    &kp RBRC,     20 21, TYPE, 50)
 COMBO(lt,      &kp LT,       13 14, TYPE, 50)
 COMBO(gt,      &kp GT,       21 22, TYPE, 50)
 COMBO(enter,   &kp ENTER,    22 23, TYPE, 50)
-COMBO(dollar,  &kp DLLR,      6  7, TYPE, 50)
+COMBO(colon,   &kp DQT,       6  7, TYPE, 50)
 COMBO(colon,   &kp COLON,     7  8, TYPE, 50)
-COMBO(zero,    &kp N0,        8  9, TYPE, 50)
+COMBO(zero,    &kp MINUS,     8  9, TYPE, 50)
 COMBO(equal,   &kp EQUAL,     9 10, TYPE, 50)
-COMBO(grave,   &kp GRAVE,    30 31, TYPE, 50)
-COMBO(semi,    &kp SEMI,     31 32, TYPE, 50)
+COMBO(grave,   &kp N0,       30 31, TYPE, 50)
+COMBO(semi,    &kp UNDER,    31 32, TYPE, 50)
+COMBO(dollar,  &kp DLLR,     32 33, TYPE, 50)
 
 // Big keys
 COMBO(bspc_l,  &kp DEL,       0  1,    ALL, 50)
@@ -72,10 +73,10 @@ COMBO(tab_lt,          &kp LC(TAB),          12 13, ALL, 50)
 COMBO(tab_rt,          &kp LC(LS(TAB)),   12 13 14, ALL, 50)
 // COMBO(back_mac,        &kp LG(LBKT),         27 28, ALL, 50)
 // COMBO(fwd_mac,         &kp LG(RBKT),         28 29, ALL, 50)
-COMBO(line_start,      &kp LG(LEFT),         18 19, ARROWS, 50)
-COMBO(line_end,        &kp LG(RIGHT),        20 21, ARROWS, 50)
+COMBO(line_start,      &kp HOME,             18 19, ARROWS, 50)
+COMBO(line_end,        &kp END,              20 21, ARROWS, 50)
 
 // Layer toggle
 COMBO(layer_reset,     &to QWERTY,    37 40,           ALL, 50)
-COMBO(bt_layer,       &to BLUETH, 36 37 38,           ALL, 50)
+COMBO(bt_layer,        &to BLUETH, 36 37 38,           ALL, 50)
 COMBO(bt_escape,       &to QWERTY, 36 37 38,        BLUETH, 50)
