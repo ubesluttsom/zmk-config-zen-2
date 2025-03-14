@@ -158,7 +158,7 @@
                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
                         bindings = <
    &to QWERTY &none    &vim_w         &kp LA(RIGHT) &none       &none        &kp LG(LEFT)  &kp LC(A)  &vim_i     &kp LG(RIGHT) &none     &trans
-   &trans     &vim_a   &none          &none         &none       &none        &kp LEFT      &kp DOWN   &kp UP     &kp RIGHT     &none     &none 
+   &trans     &vim_a   &none          &none         &none       &none        &kp LEFT      &kp DOWN   &kp UP     &kp RIGHT     &none     &none
    &trans     &none    &kp DEL        &none         &kt LSHIFT  &kp LA(LEFT) &kp LG(G)     &kp PG_DN  &kp PG_UP  &kp END       &kp LG(F) &trans
                                       &trans        &to QWERTY  &trans       &trans        &to NUMBER &trans 
                         >;
