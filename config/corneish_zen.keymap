@@ -90,20 +90,20 @@
 
                 default_layer {
                         label = "QWERTY";
-/* ╭──────────┬─────┬─────┬─────┬─────┬───────╮   ╭────────────┬─────┬─────┬─────┬─────┬─────────╮
-   │ ESC      │  Q  │  W  │  E  │  R  │  T    │   │  Y         │  U  │  I  │  O  │  P  │  ⌫      │
-   ├──────────┼─────┼─────┼─────┼─────┼───────┤   ├────────────┼─────┼─────┼─────┼─────┼─────────┤
-   │ CTRL / ↹ │  A  │  S  │  D  │  F  │  G    │   │  H         │  J  │  K  │  L  │  ;  │  '      │
-   ├──────────┼─────┼─────┼─────┼─────┼───────┤   ├────────────┼─────┼─────┼─────┼─────┼─────────┤
-   │  `       │  Z  │  X  │  C  │  V  │  B    │   │  N         │  M  │  ,  │  .  │  /  │  ⇧ / \  │
-   ╰──────────┴─────┴─────┼─────┼─────┼───────┤   ├────────────┼─────┼─────┼─────┴─────┴─────────╯
-                          │  ⌘  │ SYM │ ⇧ / ␣ │   │ CTRL / RET │ ARR │  ⌥  │
-                          ╰─────┴─────┴───────╯   ╰────────────┴─────┴─────╯                    */
+/* ╭──────────┬─────┬─────┬─────┬────────────┬───────╮   ╭───────────┬─────────┬─────┬─────┬─────┬─────────╮
+   │ ESC      │  Q  │  W  │  E  │  R         │  T    │   │ Y         │  U      │  I  │  O  │  P  │  ⌫      │
+   ├──────────┼─────┼─────┼─────┼────────────┼───────┤   ├───────────┼─────────┼─────┼─────┼─────┼─────────┤
+   │ CTRL / ↹ │  A  │  S  │  D  │  F         │  G    │   │ H         │  J      │  K  │  L  │  ;  │  '      │
+   ├──────────┼─────┼─────┼─────┼────────────┼───────┤   ├───────────┼─────────┼─────┼─────┼─────┼─────────┤
+   │  `       │  Z  │  X  │  C  │  V         │  B    │   │ N         │  M      │  ,  │  .  │  /  │  ⇧ / \  │
+   ╰──────────┴─────┴─────┼─────┼────────────┼───────┤   ├───────────┼─────────┼─────┼─────┴─────┴─────────╯
+                          │  ⌘  │ CTRL / ESC │ ⇧ / ␣ │   │ SYM / RET │ ARR / ↹ │  ⌥  │
+                          ╰─────┴────────────┴───────╯   ╰───────────┴─────────┴─────╯                    */
                         bindings = <
-   &kp ESC        &kp Q    &kp W      &kp E            &kp R         &kp T      &kp Y    &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &mt LCTRL TAB  &kp A    &kp S      &kp D            &kp F         &kp G      &kp H    &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp GRAVE      &kp Z    &kp X      &kp C            &kp V         &kp B      &kp N    &kp M  &kp COMMA &kp DOT &kp FSLH &mt RSHFT BSLH
-                  &sk LGUI &mo SYMBOL &mt LSHIFT SPACE &mt RCTRL RET &mo ARROWS &sk RALT
+   &kp ESC       &kp Q &kp W &kp E    &kp R         &kp T            &kp Y          &kp U          &kp I     &kp O   &kp P    &kp BSPC
+   &mt LCTRL TAB &kp A &kp S &kp D    &kp F         &kp G            &kp H          &kp J          &kp K     &kp L   &kp SEMI &kp SQT
+   &kp GRAVE     &kp Z &kp X &kp C    &kp V         &kp B            &kp N          &kp M          &kp COMMA &kp DOT &kp FSLH &mt RSHFT BSLH
+                             &sk LGUI &lt LCTRL ESC &mt LSHIFT SPACE &lt SYMBOL RET &lt ARROWS TAB &sk RALT
                         >;
                 };
 
@@ -116,32 +116,32 @@
    ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
    │     │     │     │     │     │     │   │  0  │  1  │  2  │  3  │  =  │     │
    ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
-                     │     │ QWR │     │   │     │ ARR │     │
+                     │     │     │     │   │ QWR │ ARR │     │
                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
                         bindings = <
    &to QWERTY &trans  &trans  &trans  &trans      &trans    &kp PLUS   &kp N7      &kp N8  &kp N9  &kp KP_MULTIPLY  &trans
    &trans     &trans  &trans  &trans  &trans      &trans    &kp MINUS  &kp N4      &kp N5  &kp N6  &kp FSLH         &trans
    &trans     &trans  &trans  &trans  &trans      &trans    &kp N0     &kp N1      &kp N2  &kp N3  &kp EQUAL        &trans
-                              &trans  &to QWERTY  &trans    &trans     &to ARROWS  &trans
+                              &trans  &trans      &trans    &to QWERTY &to ARROWS  &trans
                         >;
                 };
 
                 raise_layer {
                         label = "SYMBOL";
 /* ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
-   │     │  1  │  2  │  3  │  4  │  5  │   │  6  │  7  │  8  │  9  │  0  │     │
+   │ QWR │  1  │  2  │  3  │  4  │  5  │   │  6  │  7  │  8  │  9  │  0  │     │
    ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
    │     │  !  │  @  │ '#' │  $  │  %  │   │  ^  │  &  │  *  │  -  │  +  │  =  │
    ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
    │     │     │  <  │  {  │  [  │  (  │   │  )  │  ]  │  }  │  >  │     │     │
    ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
-                     │     │ QWR │     │   │     │ ARR │     │
+                     │     │ QWR │     │   │ QWR │ ARR │     │
                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
                         bindings = <
-   &to QWERTY &kp N1    &kp N2   &kp N3   &kp N4      &kp N5       &kp N6    &kp N7      &kp N8          &kp N9     &kp N0     &trans
-   &trans     &kp EXCL  &kp AT   &kp HASH &kp DLLR    &kp PRCNT    &kp CARET &kp AMPS    &kp KP_MULTIPLY &kp MINUS  &kp PLUS   &kp EQUAL
-   &trans     &trans    &kp LT   &kp LBRC &kp LBKT    &kp LPAR     &kp RPAR  &kp RBKT    &kp RBRC        &kp GT     &trans     &trans
-                                 &trans   &to QWERTY  &trans       &trans    &to ARROWS  &trans
+   &to QWERTY &kp N1   &kp N2 &kp N3   &kp N4     &kp N5    &kp N6     &kp N7     &kp N8          &kp N9    &kp N0   &trans
+   &trans     &kp EXCL &kp AT &kp HASH &kp DLLR   &kp PRCNT &kp CARET  &kp AMPS   &kp KP_MULTIPLY &kp MINUS &kp PLUS &kp EQUAL
+   &trans     &trans   &kp LT &kp LBRC &kp LBKT   &kp LPAR  &kp RPAR   &kp RBKT   &kp RBRC        &kp GT    &trans   &trans
+                              &trans   &to QWERTY &trans    &to QWERTY &to ARROWS &trans
                         >;
                 };
 
@@ -154,13 +154,13 @@
    ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
    │     │     │ [x] │     │ [v] │ [b] │   │ [n] │ PGD │ PGU │  ↘  │ [/] │     │
    ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
-                     │     │ QWR │     │   │     │ NUM │     │
+                     │     │ QWR │     │   │ QWR │ NUM │     │
                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
                         bindings = <
-   &to QWERTY &none    &vim_w         &kp LA(RIGHT) &none       &none        &kp LG(LEFT)  &kp LC(A)  &vim_i     &kp LG(RIGHT) &none     &trans
-   &trans     &vim_a   &none          &none         &none       &none        &kp LEFT      &kp DOWN   &kp UP     &kp RIGHT     &none     &none
-   &trans     &none    &kp DEL        &none         &kt LSHIFT  &kp LA(LEFT) &kp LG(G)     &kp PG_DN  &kp PG_UP  &kp END       &kp LG(F) &trans
-                                      &trans        &to QWERTY  &trans       &trans        &to NUMBER &trans 
+   &to QWERTY &none    &vim_w  &kp LA(RIGHT) &none      &none        &kp LG(LEFT) &kp LC(A)  &vim_i     &kp LG(RIGHT) &none     &trans
+   &trans     &vim_a   &none   &none         &none      &none        &kp LEFT     &kp DOWN   &kp UP     &kp RIGHT     &none     &none
+   &trans     &none    &kp DEL &none         &kt LSHIFT &kp LA(LEFT) &kp LG(G)    &kp PG_DN  &kp PG_UP  &kp END       &kp LG(F) &trans
+                               &trans        &to QWERTY &trans       &to QWERTY   &to NUMBER &trans 
                         >;
                 };
 
@@ -173,13 +173,13 @@
    ├───────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
    │       │     │     │     │     │     │   │     │     │     │     │     │     │
    ╰───────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
-                       │     │ QWR │     │   │     │     │     │
+                       │     │ QWR │     │   │ QWR │     │     │
                        ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
                         bindings = <
-   &to QWERTY &none        &none        &none        &none        &none           &none   &none   &none   &none   &none   &none    
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &none   &none   &none   &none   &none   &none 
-   &none      &none        &none        &none        &none        &none           &none   &none   &none   &none   &none   &none 
-                                        &none        &to QWERTY   &none           &none   &none   &none 
+   &to QWERTY &none        &none        &none        &none        &none        &none      &none   &none   &none   &none   &none    
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none      &none   &none   &none   &none   &none 
+   &none      &none        &none        &none        &none        &none        &none      &none   &none   &none   &none   &none 
+                                        &none        &to QWERTY   &none        &to QWERTY &none   &none 
                         >;
                 };
         };
