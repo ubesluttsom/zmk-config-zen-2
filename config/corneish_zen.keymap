@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/pointing.h>
 
 #define QWERTY 0
 #define NUMBER 1
@@ -148,19 +149,19 @@
                 arrow_layer {
                         label = "ARROWS";
 /* ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
-   │     │     │ [w] │ [e] │     │     │   │ <LN │ [u] │ [i] │ LN> │     │     │
+   │     │     │  ↑  │ [e] │     │     │   │ SC← │ SC↓ │ SC↑ │ SC→ │     │     │
    ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-   │     │ [a] │     │     │     │     │   │  ←  │  ↓  │  ↑  │  →  │     │     │
+   │     │  ←  │  ↓  │  →  │     │     │   │  ←  │  ↓  │  ↑  │  →  │     │     │
    ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-   │     │     │ [x] │     │ [v] │ [b] │   │ [n] │ PGD │ PGU │  ↘  │ [/] │     │
+   │     │     │ [x] │     │     │ [b] │   │  ↖︎  │ PGD │ PGU │  ↘  │ [/] │     │
    ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
-                     │     │ QWR │     │   │ QWR │ NUM │     │
+                     │     │     │     │   │ MB1 │ NUM │ MB2 │
                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
                         bindings = <
-   &to QWERTY &none    &vim_w  &kp LA(RIGHT) &none      &none        &kp LG(LEFT) &kp LC(A)  &vim_i     &kp LG(RIGHT) &none     &trans
-   &trans     &vim_a   &none   &none         &none      &none        &kp LEFT     &kp DOWN   &kp UP     &kp RIGHT     &none     &none
-   &trans     &none    &kp DEL &none         &kt LSHIFT &kp LA(LEFT) &kp LG(G)    &kp PG_DN  &kp PG_UP  &kp END       &kp LG(F) &trans
-                               &trans        &to QWERTY &trans       &to QWERTY   &to NUMBER &trans 
+   &to QWERTY &none          &mmv MOVE_UP   &kp LA(RIGHT)   &none  &none        &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT &none     &trans
+   &trans     &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none  &none        &kp LEFT       &kp DOWN       &kp UP       &kp RIGHT       &none     &none
+   &trans     &none          &kp DEL        &none           &none  &kp LA(LEFT) &kp HOME       &kp PG_DN      &kp PG_UP    &kp END         &kp LG(F) &trans
+                                            &trans          &trans &trans       &mkp LCLK      &to NUMBER     &mkp RCLK
                         >;
                 };
 
