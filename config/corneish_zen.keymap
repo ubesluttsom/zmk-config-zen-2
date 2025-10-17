@@ -167,17 +167,17 @@
 /* ╭───────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
    │       │     │     │     │     │     │   │     │     │     │     │     │     │
    ├───────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-   │ BTCLR │ BT1 │ BT2 │ BT3 │ BT4 │ BT5 │   │     │     │     │     │     │     │
+   │ BTCLR │ +B1 │ +B2 │ +B3 │ +B4 │ +B5 │   │     │     │     │     │     │     │
    ├───────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-   │       │     │     │     │     │     │   │     │     │     │     │     │     │
+   │ GAME  │ -B1 │ -B1 │ -B1 │ -B1 │ -B1 │   │     │     │     │     │     │     │
    ╰───────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
                        │     │ QWR │     │   │ QWR │     │     │
                        ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯                   */
                         bindings = <
-   &to QWERTY &none        &none        &none        &none        &none        &none      &none   &none   &none   &none   &none
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none      &none   &none   &none   &none   &none
-   &none      &none        &none        &none        &none        &none        &none      &none   &none   &none   &none   &none
-                                        &none        &to QWERTY   &none        &to QWERTY &none   &none
+   &to QWERTY &none         &none         &none         &none         &none         &none      &none   &none   &none   &none   &none
+   &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none      &none   &none   &none   &none   &none
+   &to GAME   &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 4 &none      &none   &none   &none   &none   &none
+                                          &none         &to QWERTY    &none         &to QWERTY &none   &none
                         >;
                 };
 
