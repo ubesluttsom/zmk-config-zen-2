@@ -7,7 +7,7 @@
 compatible = "zmk,combos";
 
 #define TYPE QWERTY NUMBER SYMBOL
-#define ALL  QWERTY NUMBER SYMBOL ARROWS
+#define ALL  QWERTY NUMBER SYMBOL ARROWS GAME
 
 #define COMBO(NAME, BINDINGS, KEYPOS, LAYERS, TERM) \
     combo_##NAME { \
